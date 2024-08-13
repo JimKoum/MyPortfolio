@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    /*overflow: hidden;*/
     color: #d1d1d1;;
     overflow: hidden;
 }
@@ -26,180 +25,19 @@ body{
     }
 }
 
-.animate{
-    position: absolute;
-    border-radius: 5px;
-    background-color: #cfdfe2;
-}
-.one{
-    left:2%;
-    width: 3%;
-    height: 6%;
-    animation: one 10s linear infinite;
-}
-@keyframes one{
-    0%   {opacity:10%; top:-130px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 1000deg;}
-}
-.two{
-    left: 5%;
-    width: 6%;
-    height: 12%;
-    animation: two 12s linear infinite;
-}
-@keyframes two{
-    0%   {opacity:10%; top:-500px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 360deg;}
-}
-.three{
-    left: 30%;
-    width: 2%;
-    height: 4%;
-    animation: three 9s linear infinite;
-}
-@keyframes three{
-    0%   {opacity:10%; top:-300px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 1000deg;}
-}
-.four{
-    left: 20%;
-    width: 8%;
-    height: 16%;
-    animation: four 20s linear infinite;
-}
-@keyframes four{
-    0%   {opacity:10%; top:-130px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:120%; rotate: 300deg;}
-}
-.five{
-    left:45%;
-    width: 4%;
-    height: 8%;
-    animation: five 11s linear infinite;
-}
-@keyframes five{
-    0%   {opacity:10%; top:-40px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 1000deg;}
-}
-.six{
-    left: 65%;
-    width: 8%;
-    height: 16%;
-    animation: six 15s linear infinite;
-}
-@keyframes six{
-    0%   {opacity:10%; top:-300px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 400deg;}
-}
-.seven{
-    left: 89%;
-    width: 4%;
-    height: 8%;
-    animation: seven 10s linear infinite;
-}
-@keyframes seven{
-    0%   {opacity:10%; top:-800px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 800deg;}
-}
-.eight{
-    left: 74%;
-    width: 10%;
-    height: 20%;
-    animation: eight 20s linear infinite;
-}
-@keyframes eight{
-    0%   {opacity:10%; top:-130px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:120%; rotate: 240deg;}
-}
-.nine{
-    left:97%;
-    width: 5%;
-    height: 10%;
-    animation: nine 14s linear infinite;
-}
-@keyframes nine{
-    0%   {opacity:10%; top:-130px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 600deg;}
-}
-.ten{
-    left: 55%;
-    width: 4.5%;
-    height: 9%;
-    animation: ten 12s linear infinite;
-}
-@keyframes ten{
-    0%   {opacity:10%; top:-130px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 360deg;}
-}
-.eleven{
-    left: 81%;
-    width: 2.5%;
-    height: 5%;
-    animation: eleven 8s linear infinite;
-}
-@keyframes eleven{
-    0%   {opacity:10%; top:-300px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:100%; rotate: 1200deg;}
-}
-.twelve{
-    left: 26%;
-    width: 1.5%;
-    height: 3%;
-    animation: twelve 8s linear infinite;
-}
-@keyframes twelve{
-    0%   {opacity:10%; top:-130px;}
-    20%   {opacity:90%;}
-    40%   {opacity:10%;}
-    60%   {opacity:90%;}
-    80%   {opacity:10%;}
-    100%  {opacity:90%; top:120%; rotate: 2000deg;}
-}
+.one { --rotate: 650deg; animation: animateDiv 10s linear forwards; }
+.two { --rotate: 450deg; animation: animateDiv 12s linear forwards; }
+.three { --rotate: 900deg; animation: animateDiv 9s linear forwards; }
+.four { --rotate: 360deg; animation: animateDiv 20s linear forwards; }
+.five { --rotate: 1090deg; animation: animateDiv 12s linear forwards; }
+.six { --rotate: 840deg; animation: animateDiv 16s linear forwards; }
 
+@keyframes animateDiv {
+    0% { opacity: 10%; top: -130px; transform: rotate(0deg); }
+    20%, 60% { opacity: 90%; }
+    40%, 80% { opacity: 10%; }
+    100% { opacity: 90%; top: 150%; transform: rotate(var(--rotate)); }
+}
 
 .portfolio{
     display: flex;
