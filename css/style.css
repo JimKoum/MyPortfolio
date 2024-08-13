@@ -39,6 +39,15 @@ body{
     100% { opacity: 90%; top: 150%; transform: rotate(var(--rotate)); }
 }
 
+.rev{animation: animateRev 10s linear forwards;}
+
+@keyframes animateRev {
+    0% { opacity: 90%;}
+    20%, 60% { opacity: 10%; }
+    40%, 80% { opacity: 90%; }
+    100% { opacity: 0%; transform: rotate(-500deg); top:-1000px}
+}
+
 .portfolio{
     z-index: 5;
     display: flex;
