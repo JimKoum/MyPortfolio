@@ -58,15 +58,17 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2vh;
-    height: 70%;
-    width: 70%;
+    height: 60%;
+    width: 60%;
 
     background-color: #1a1a1a;
+    opacity: 90%;
     outline: solid  #f2f2f2;
     outline-offset: -1px;
     transition: all .3s linear;
     
     &:hover {
+        opacity: 1;
         outline: solid transparent;
         box-shadow: 8px 8px 1px 1px #0d0d0d;
     }
