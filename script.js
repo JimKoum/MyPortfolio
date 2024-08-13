@@ -1,4 +1,4 @@
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 15; i++) {
     setTimeout(function() { makeDiv(); }, 1000 * i);
 }
 
@@ -13,10 +13,11 @@ function makeDiv(){
     $newdiv = $('<div/>').css({
         'width':divsize+'px',
         'height':divsize+'px',
+        'left':posx+'px',
         'background-color': '#cfdfe2',
         'border-radius':'5px',
         'position':'absolute',
-        'left':posx+'px'
+        'cursor': 'pointer' 
     });
 
     //Add random css class and delay
@@ -51,12 +52,34 @@ function makeDiv(){
         default:
             $newdiv.addClass( "one" );
             delay = 9600;
-      }
+    }
+    
+    //highlight on hover
+    $newdiv.hover(function() {
+        $(this).css({
+            'background-color': 'white',
+            'opacity': '1'
+        });
+    });
+
+    //on click perform reverse animation
+    $newdiv.click(function() {
+
+        //find position/rotation  of div
+        var currentPos = $(this).css('top');
+        var currentRotate = $(this).css('rotate');
+
+        $(this).css({'top': currentPos});
+        $(this).css({'rotate': currentRotate});
+        $(this).addClass("rev");
+
+    });
 
 
-    $newdiv.appendTo( 'body' ).fadeIn(100).delay(delay).fadeOut(200, function(){
+    $newdiv.appendTo( 'body' ).fadeIn(100).delay(delay).fadeOut(5000, function(){
        $(this).remove();
        makeDiv();
     });
+
 
 }
