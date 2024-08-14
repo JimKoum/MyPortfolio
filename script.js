@@ -17,32 +17,10 @@ function makeDiv(){
     });
 
     //Add random css class
-    var classNumber = Math.floor(Math.random() * 6) + 1;
-
-    switch(classNumber) {
-        case 1:
-            $newdiv.addClass( "one" );
-          break;
-        case 2:
-            $newdiv.addClass( "two" );
-          break;
-          case 3:
-            $newdiv.addClass( "three" );
-          break;
-        case 4:
-            $newdiv.addClass( "four" );
-          break;
-          case 5:
-            $newdiv.addClass( "five" );
-          break;
-        case 6:
-            $newdiv.addClass( "six" );
-          break;
-        default:
-            $newdiv.addClass( "one" );
-    }
+    var classes = ["one", "two", "three", "four", "five", "six"];
+    $newdiv.addClass(classes[~~(Math.random()*classes.length)]);
     
-    //highlight on hover
+    //Highlight on hover
     $newdiv.hover(function() {
         $(this).css({
             'background-color': 'white',
@@ -72,19 +50,18 @@ function makeDiv(){
 
         }else{
 
-          //find and remove previous class
+          //Find and remove previous class
           var getClass = this.className;
           $(this).removeClass(getClass);
 
           $(this).addClass("rev-two");
           flag = 0;
-
+            
         }
 
     });    
 
     $newdiv.appendTo('body');
-
 }
 
 setInterval(makeDiv, 1000);
