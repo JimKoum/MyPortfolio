@@ -1,7 +1,3 @@
-for (let i = 0; i < 15; i++) {
-    setTimeout(function() { makeDiv(); }, 1000 * i);
-}
-
 function makeDiv(){
 
     //Generate a div with random width height
@@ -20,38 +16,30 @@ function makeDiv(){
         'cursor': 'pointer' 
     });
 
-    //Add random css class and delay
-    let delay;
+    //Add random css class
     var classNumber = Math.floor(Math.random() * 6) + 1;
 
     switch(classNumber) {
         case 1:
             $newdiv.addClass( "one" );
-            delay = 9600;
           break;
         case 2:
             $newdiv.addClass( "two" );
-            delay = 9600;
           break;
           case 3:
             $newdiv.addClass( "three" );
-            delay = 8000;
           break;
         case 4:
             $newdiv.addClass( "four" );
-            delay = 16000;
           break;
           case 5:
             $newdiv.addClass( "five" );
-            delay = 10000;
           break;
         case 6:
             $newdiv.addClass( "six" );
-            delay = 12000;
           break;
         default:
             $newdiv.addClass( "one" );
-            delay = 9600;
     }
     
     //highlight on hover
@@ -62,6 +50,7 @@ function makeDiv(){
         });
     });
 
+    let flag = 0;
     //on click perform reverse animation
     $newdiv.click(function() {
 
@@ -71,15 +60,31 @@ function makeDiv(){
 
         $(this).css({'top': currentPos});
         $(this).css({'rotate': currentRotate});
-        $(this).addClass("rev");
 
-    });
+        if (flag == 0){
 
+          //find and remove previous class
+          var getClass = this.className;
+          $(this).removeClass(getClass);
 
-    $newdiv.appendTo( 'body' ).fadeIn(100).delay(delay).fadeOut(5000, function(){
-       $(this).remove();
-       makeDiv();
-    });
+          $(this).addClass("rev");
+          flag = 1;
 
+        }else{
+
+          //find and remove previous class
+          var getClass = this.className;
+          $(this).removeClass(getClass);
+
+          $(this).addClass("rev-two");
+          flag = 0;
+
+        }
+
+    });    
+
+    $newdiv.appendTo('body');
 
 }
+
+setInterval(makeDiv, 1000);
